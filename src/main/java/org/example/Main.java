@@ -12,7 +12,8 @@ public class Main {
                 "postgres", "fdpgsp2425SS");
 
         try (Handle handle = jdbi.open()) {
-
+            String name = "AsonyaTest";
+            handle.execute("insert into users(name) values('"+ name +"')");
 
             List<User> users = handle.createQuery("select * from users").mapToBean(User.class).list();
 
